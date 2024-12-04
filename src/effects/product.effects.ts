@@ -12,9 +12,7 @@ export class ProductEffects {
   private actions$ = inject(Actions);
   private http = inject(HttpClient);
 
-  constructor() {
-    //this.getData();
-  }
+  constructor() {}
 
   loadProducts$ = createEffect(() =>
     this.actions$.pipe(
@@ -33,9 +31,4 @@ export class ProductEffects {
       )
     )
   );
-
-  getData() {
-    this.http.get<Product[]>(this.url).subscribe((data: any) => console.log(data))
-  }
-
 }

@@ -3,7 +3,7 @@ import {Observable} from "rxjs";
 import {Store} from "@ngrx/store";
 import {Product} from "../../../reducers/product.reducers";
 import {selectError, selectIsLoading, selectProducts} from "../../../selectors/product.selectors";
-import {getProductList} from "../../../actions/product.actions";
+import {getProductList, getProductListFailure} from "../../../actions/product.actions";
 
 @Component({
   selector: 'app-product-list',
@@ -24,9 +24,5 @@ export class ProductListComponent implements OnInit{
 
   ngOnInit(): void {
     this.store.dispatch(getProductList());
-    this.store.subscribe(data => console.log(data));
-    this.products$.subscribe(data => console.log(data));
-    this.isLoading$.subscribe(data => console.log(data));
-    this.error$.subscribe(data => console.log(data));
   }
 }

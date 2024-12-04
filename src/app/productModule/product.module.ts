@@ -6,6 +6,11 @@ import {PRODUCT_LIST_FEATURES, productReducer} from "../../reducers/product.redu
 import {EffectsModule} from "@ngrx/effects";
 import {ProductEffects} from "../../effects/product.effects";
 import {HttpClientModule} from "@angular/common/http";
+import {RouterModule, Routes} from "@angular/router";
+
+export const routes: Routes = [
+  { path: '', pathMatch: 'full', component: ProductListComponent },
+];
 
 @NgModule({
   declarations: [ProductListComponent],
@@ -13,7 +18,8 @@ import {HttpClientModule} from "@angular/common/http";
     CommonModule,
     StoreModule.forFeature(PRODUCT_LIST_FEATURES, productReducer),
     EffectsModule.forFeature([ProductEffects]),
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forChild(routes),
   ]
 })
 export class ProductListModule {}
