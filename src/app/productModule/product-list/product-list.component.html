@@ -5,11 +5,13 @@
     <div *ngIf="error$ | async as error" class="error">{{ error }}</div>
   } @else {
     <h1>Produkty:</h1>
-    <div class="item" *ngFor="let product of products$ | async">
-      <h2>{{ product.name }}</h2>
-      <p>Price: {{ product.price }}</p>
-      <p>Price: {{ product.category }}</p>
-      <button>Add to Cart</button>
-    </div>
+    @for (item of productList; track $index){
+      <div class="item">
+        <h2>{{ item.name }}</h2>
+        <p>Price: {{ item.price }}</p>
+        <p>Price: {{ item.category }}</p>
+        <button>Add to Cart</button>
+      </div>
+    }
   }
 </div>

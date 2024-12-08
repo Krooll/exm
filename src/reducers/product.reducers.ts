@@ -27,19 +27,16 @@ export const productReducer = createReducer(
   on(getProductList, (state) => ({
     ...state,
     isLoading: true,
-    products: [],
     error: null
   })),
   on(getProductListSuccess, (state, {products}) => ({
     ...state,
     isLoading: false,
     products,
-    error: null
   })),
   on(getProductListFailure, (state, {error}) => ({
     ...state,
     isLoading: false,
-    products: [],
     error: error
   }))
 )
