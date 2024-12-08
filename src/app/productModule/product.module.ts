@@ -7,6 +7,7 @@ import {EffectsModule} from "@ngrx/effects";
 import {ProductEffects} from "../../effects/product.effects";
 import {HttpClientModule} from "@angular/common/http";
 import {RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', component: ProductListComponent },
@@ -20,6 +21,7 @@ export const routes: Routes = [
     EffectsModule.forFeature([ProductEffects]),
     HttpClientModule,
     RouterModule.forChild(routes),
+    FormsModule,
   ]
 })
 export class ProductListModule {}

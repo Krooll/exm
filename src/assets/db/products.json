@@ -3,48 +3,59 @@
     { "id": 1,
       "name": "Jabłko",
       "price": 2.5,
-      "category": "owoce"
+      "category": "owoce",
+      "counter": 0
     },
     { "id": 2,
       "name": "Banan",
       "price": 3.0,
-      "category": "owoce"
+      "category": "owoce",
+      "counter": 0
     },
     { "id": 3,
       "name": "Marchew",
       "price": 1.8,
-      "category": "warzywa"
+      "category": "warzywa",
+      "counter": 0
     },
     { "id": 4,
       "name": "Ziemniaki",
       "price": 2.0,
-      "category": "warzywa"
+      "category": "warzywa",
+      "counter": 0
     },
     { "id": 5,
       "name": "Czekolada",
       "price": 5.5,
-      "category": "slodycze"
+      "category": "slodycze",
+      "counter": 0
     },
     { "id": 6,
       "name": "Ciastka",
       "price": 4.0,
-      "category": "slodycze"
+      "category": "slodycze",
+      "counter": 0
     },
     { "id": 7,
       "name": "Truskawki",
       "price": 3.2,
-      "category": "owoce"
+      "category": "owoce",
+      "counter": 0
     },
     { "id": 8,
       "name": "Pomidor",
       "price": 2.3,
-      "category": "warzywa"
+      "category": "warzywa",
+      "counter": 0
     },
     { "id": 9,
       "name": "Cukierki",
       "price": 6.0,
-      "category": "slodycze"
+      "category": "slodycze",
+      "counter": 0
     }
-  ]
+  ],
+
+  "orders": []
 }
 

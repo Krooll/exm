@@ -18,11 +18,9 @@ export class ProductEffects {
     this.actions$.pipe(
       ofType(getProductList),
       switchMap(() =>
-        this.http.get<Product[]>(this.url).pipe(
-          map(products => getProductListSuccess({ products })),
-          catchError(error => {
-            return of(getProductListFailure({ error: error.message }));
-          })
+        this.http.get<{ products: Product[] }>(this.url).pipe(
+          map(response => getProductListSuccess({ products: response.products })),
+          catchError(error => of(getProductListFailure({ error: error.message })))
         )
       )
     )

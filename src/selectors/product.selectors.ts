@@ -15,3 +15,7 @@ export const selectError = createSelector(
   selectProductState,
   (state: ProductState) => state.error
 )
+
+export const selectCounter = (productId: number) => createSelector(selectProducts, (product) =>
+  product.find((product) => product.id === productId)?.counter || 0
+)

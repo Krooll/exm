@@ -1,17 +1,24 @@
-<div class="main-container">
-  @if(isLoading$ | async){
-    <p>Loading...</p>
-  } @else if (error$ | async) {
-    <div *ngIf="error$ | async as error" class="error">{{ error }}</div>
-  } @else {
-    <h1>Produkty:</h1>
-    @for (item of productList; track $index){
-      <div class="item">
-        <h2>{{ item.name }}</h2>
-        <p>Price: {{ item.price }}</p>
-        <p>Price: {{ item.category }}</p>
-        <button>Add to Cart</button>
-      </div>
+<div class="container">
+  <h1>Produkty:</h1>
+  <div class="main-container">
+    @if (isLoading$ | async) {
+      <p>Loading...</p>
+    } @else if (error$ | async) {
+      <div *ngIf="error$ | async as error" class="error">{{ error }}</div>
+    } @else {
+      @for (item of (products$ | async); track item.id) {
+        <div class="item">
+          <h2>{{ item.name }}</h2>
+          <p>Price: {{ item.price }}</p>
+          <p>Price: {{ item.category }}</p>
+          <div class="counters">
+            <button type="button" (click)="incrementCounter(item.id)">+</button>
+            <div class="number">{{ counter$(item.id) | async }}</div>
+            <button type="button" (click)="decrementCounter(item.id)">-</button>
+          </div>
+          <button>Add to Cart</button>
+        </div>
+      }
     }
-  }
+  </div>
 </div>
