@@ -19,16 +19,13 @@ export class ProductEffects {
       ofType(getProductList),
       switchMap(() =>
         this.http.get<Product[]>(this.url).pipe(
-          map((products) => {
-            console.log('Załadowane produkty:', products);
-            return getProductListSuccess({products});
-          }),
-          catchError((error) => {
-            console.error('Błąd ładowania produktów:', error);
-            return of(getProductListFailure({error: error.message}));
+          map(products => getProductListSuccess({ products })),
+          catchError(error => {
+            return of(getProductListFailure({ error: error.message }));
           })
         )
       )
     )
   );
+
 }

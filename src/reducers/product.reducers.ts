@@ -20,23 +20,26 @@ export const initialState: ProductState = {
   error: null
 };
 
-export const PRODUCT_LIST_FEATURES = 'products-list';
+export const PRODUCT_LIST_FEATURES = 'products';
 
 export const productReducer = createReducer(
   initialState,
   on(getProductList, (state) => ({
     ...state,
     isLoading: true,
+    products: [],
     error: null
   })),
   on(getProductListSuccess, (state, {products}) => ({
     ...state,
     isLoading: false,
-    products: products
+    products,
+    error: null
   })),
   on(getProductListFailure, (state, {error}) => ({
     ...state,
     isLoading: false,
+    products: [],
     error: error
   }))
 )

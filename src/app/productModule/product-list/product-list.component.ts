@@ -12,17 +12,17 @@ import {getProductList, getProductListFailure} from "../../../actions/product.ac
 })
 export class ProductListComponent implements OnInit{
   store = inject(Store)
-  products$: Observable<Product[]>
-  isLoading$: Observable<boolean>
-  error$: Observable<string | null>
+  products$ = this.store.select(selectProducts);
+  isLoading$ = this.store.select(selectIsLoading);
+  error$ = this.store.select(selectError);
 
   constructor() {
-    this.products$ = this.store.select(selectProducts);
-    this.isLoading$ = this.store.select(selectIsLoading);
-    this.error$ = this.store.select(selectError);
   }
 
   ngOnInit(): void {
     this.store.dispatch(getProductList());
+    this.products$.subscribe(data => {
+      console.log('products', data);
+    });
   }
 }

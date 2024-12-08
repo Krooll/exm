@@ -16,7 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot(),
+    StoreModule.forRoot({product: productReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: false
